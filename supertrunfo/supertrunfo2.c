@@ -11,6 +11,20 @@ const char* nomesAtributos[] = {
     "Super Poder"
 };
 
+// Função para obter o valor do atributo escolhido
+float obterValorAtributo(int opcao, unsigned long int populacao, float area, float pib, int pontosTuristicos, float densidadePopulacional, float pibPerCapita, float super) {
+    switch (opcao) {
+        case 1: return (float)populacao;
+        case 2: return area;
+        case 3: return pib;
+        case 4: return (float)pontosTuristicos;
+        case 5: return densidadePopulacional;
+        case 6: return pibPerCapita;
+        case 7: return super;
+        default: return 0;
+    }
+}
+
 int main() {
     
     // A seguir são definidas as variaveis necessárias para o preenchimento das cartas
@@ -139,33 +153,17 @@ int main() {
     scanf("%d", &opcao1);
 
     printf("*** ESCOLHA O SEGUNDO ATRIBUTO QUE DESEJA COMPARAR ***\n");
-    printf("1. População da cidade\n");
-    printf("2. Área\n");
-    printf("3. Produto Interno Bruto\n");
-    printf("4. Quantidade de pontos turísticos\n");
-    printf("5. Densidade Populacional\n");
-    printf("6. PIB per Capita\n");
-    printf("7. Super Poder\n");
+    for (int i = 1; i <= 7; i++) {
+        if (i != opcao1) {
+            printf("%d. %s\n", i, nomesAtributos[i]);
+        }
+    }
     scanf("%d", &opcao2);
 
     // Verificar se os atributos escolhidos são diferentes
     if (opcao1 == opcao2) {
         printf("Os atributos escolhidos devem ser diferentes. Repita a operação!\n");
         return 1;
-    }
-
-    // Função para obter o valor do atributo escolhido
-    float obterValorAtributo(int opcao, unsigned long int populacao, float area, float pib, int pontosTuristicos, float densidadePopulacional, float pibPerCapita, float super) {
-        switch (opcao) {
-            case 1: return (float)populacao;
-            case 2: return area;
-            case 3: return pib;
-            case 4: return (float)pontosTuristicos;
-            case 5: return densidadePopulacional;
-            case 6: return pibPerCapita;
-            case 7: return super;
-            default: return 0;
-        }
     }
 
     // Obter os valores dos atributos escolhidos para cada carta
