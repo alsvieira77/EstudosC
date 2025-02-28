@@ -42,6 +42,7 @@ int main(){
         case 'i':
             printf("Você escolheu a opção IGUAL\n");
             resultado = numeroJogador == numeroComputador ? 1 : 0;
+            break;
 
         default:
         printf("Opção Inválida");
